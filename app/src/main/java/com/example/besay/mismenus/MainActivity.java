@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,7 +60,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        menu.add(menu.NONE);
+        menu.add(menu.NONE, OPCION_MOSTRAR_MENSAJE_HOLA, Menu.NONE, "Hola").setIcon(R.drawable.ic_menu_camera).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        menu.add(menu.NONE, OPCION_MOSTRAR_MENSAJE_HELLO, Menu.NONE, "Hello").setIcon(R.drawable.ic_menu_manage).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+
+
+
         return true;
     }
 
@@ -70,10 +75,20 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+
+            case OPCION_MOSTRAR_MENSAJE_HOLA:
+                Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
+                break;
+            case OPCION_MOSTRAR_MENSAJE_HELLO:
+                Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+                break;
         }
+
+        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
