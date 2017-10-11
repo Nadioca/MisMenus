@@ -16,6 +16,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    final int OPCION_MOSTRAR_MENSAJE_HOLA = 23;
+    final int OPCION_MOSTRAR_MENSAJE_HELLO = 24;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
