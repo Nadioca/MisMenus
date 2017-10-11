@@ -3,6 +3,7 @@ package com.example.besay.mismenus;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity
 
     final int OPCION_MOSTRAR_MENSAJE_HOLA = 23;
     final int OPCION_MOSTRAR_MENSAJE_HELLO = 24;
+    final int OPCION_MOSTRAR_MENSAJE_HALLO = 25;
+    final int OPCION_MOSTRAR_MENSAJE_BONJOUR= 26;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,8 @@ public class MainActivity extends AppCompatActivity
         menu.add(menu.NONE, OPCION_MOSTRAR_MENSAJE_HOLA, Menu.NONE, "Hola").setIcon(R.drawable.ic_menu_camera).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         menu.add(menu.NONE, OPCION_MOSTRAR_MENSAJE_HELLO, Menu.NONE, "Hello").setIcon(R.drawable.ic_menu_manage).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 
-
+        SubMenu submenu = menu.addSubMenu(menu.NONE, OPCION_MOSTRAR_MENSAJE_HALLO, Menu.NONE, "Hallo");
+        submenu.add(Menu.NONE, OPCION_MOSTRAR_MENSAJE_BONJOUR, Menu.NONE, "Bonjour");
 
         return true;
     }
@@ -82,6 +86,12 @@ public class MainActivity extends AppCompatActivity
                 break;
             case OPCION_MOSTRAR_MENSAJE_HELLO:
                 Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+                break;
+            case OPCION_MOSTRAR_MENSAJE_HALLO:
+                Toast.makeText(this, "Hallo", Toast.LENGTH_SHORT).show();
+                break;
+            case OPCION_MOSTRAR_MENSAJE_BONJOUR:
+                Toast.makeText(this, "Bonjour", Toast.LENGTH_SHORT).show();
                 break;
         }
 
